@@ -1,0 +1,101 @@
+<section id="experience" class="py-20">
+  <div class="container px-6 mx-auto">
+    <div class="max-w-3xl mx-auto mb-16 text-center">
+      <h2 class="mb-4 text-3xl font-bold text-warm-text md:text-4xl">
+        Work <span class="text-warm-accent">Experience</span>
+      </h2>
+      <p class="text-warm-text/70">
+        My professional journey and contributions in quality assurance and
+        engineering.
+      </p>
+    </div>
+
+    <div class="grid gap-8 max-w-4xl mx-auto">
+      @for (exp of experiences(); track exp.company) {
+      <div
+        class="overflow-hidden bg-beige-100 border border-beige-200 rounded-2xl shadow-sm hover:shadow-md transition-shadow"
+      >
+        <div class="p-8">
+          <div class="flex flex-col gap-6 md:flex-row md:items-start">
+            <div
+              class="relative w-full h-36 md:w-56 md:h-40 flex-shrink-0 overflow-hidden rounded-lg"
+            >
+              @if (exp.imageUrl) {
+              <img
+                [src]="exp.imageUrl"
+                alt="{{ exp.company }}"
+                class="absolute inset-0 w-full h-full object-cover scale-[1.7] md:scale-[1.3] lg:scale-[1.2]"
+              />
+              } @else {
+              <div
+                class="w-full h-48 md:w-32 md:h-32 rounded-lg bg-beige-100 flex items-center justify-center text-warm-text/20"
+              >
+                <svg
+                  class="w-12 h-12"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+                  ></path>
+                </svg>
+              </div>
+              }
+            </div>
+
+            <div class="flex-grow">
+              <h3 class="text-xl font-bold text-warm-accent mb-6">
+                {{ exp.company }}
+              </h3>
+
+              <div class="space-y-10">
+                @for (role of exp.roles; track role.title) {
+                <div
+                  class="relative pl-0 md:pl-4 border-l-0 md:border-l-2 border-beige-200"
+                >
+                  <div
+                    class="flex flex-col gap-1 mb-3 md:flex-row md:justify-between md:items-baseline"
+                  >
+                    <h4 class="text-lg font-bold text-warm-text">
+                      {{ role.title }}
+                    </h4>
+                    <div class="text-sm text-warm-text/60 md:text-right">
+                      <p>{{ role.period }}</p>
+                      <p>{{ role.location }}</p>
+                    </div>
+                  </div>
+
+                  <div class="mb-5">
+                    <ul
+                      class="space-y-2 list-disc list-inside text-warm-text/80 text-sm leading-relaxed"
+                    >
+                      @for (desc of role.description; track desc) {
+                      <li>{{ desc }}</li>
+                      }
+                    </ul>
+                  </div>
+
+                  <div class="flex flex-wrap gap-2">
+                    @for (tag of role.tags; track tag) {
+                    <span
+                      class="px-3 py-1 text-xs font-medium rounded-full bg-beige-100 text-warm-text/80"
+                    >
+                      {{ tag }}
+                    </span>
+                    }
+                  </div>
+                </div>
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,79 @@
+<section id="about" class="py-20 bg-white">
+  <div class="container px-6 mx-auto">
+    <div class="max-w-3xl mx-auto mb-16 text-center">
+      <h2 class="mb-4 text-3xl font-bold text-[#0a0a0a] md:text-4xl">
+        About <span class="text-warm-accent">Me</span>
+      </h2>
+      <p class="text-[#0a0a0a]/70">
+        A glimpse into my background, skills, and what drives me as a QA
+        engineer.
+      </p>
+    </div>
+
+    <div class="grid items-center gap-12 mb-20 md:grid-cols-2">
+      <div class="relative">
+        <div class="overflow-hidden rounded-2xl shadow-lg"></div>
+      </div>
+      <div>
+        <h3 class="mb-4 text-2xl font-bold text-[#0a0a0a]">Who am I?</h3>
+        <p class="mb-4 leading-relaxed text-[#0a0a0a]/80">
+          I am a detail-oriented and results-driven Quality Assurance Engineer
+          with a passion for ensuring bug-free and intuitive applications. I
+          specialize in manual and automated testing, turning complex problems
+          into reliable and scalable solutions.
+        </p>
+        <p class="mb-6 leading-relaxed text-[#0a0a0a]/80">
+          My journey in tech started with a curiosity about how to ensure
+          software works perfectly, which then evolved into a career. I am
+          always learning and exploring new testing methodologies to stay ahead
+          in the industry.
+        </p>
+        <a
+          href="/path-to-your-resume.pdf"
+          target="_blank"
+          class="inline-flex items-center px-6 py-2.5 font-medium text-warm-accent border-2 border-warm-accent rounded-full hover:bg-warm-accent hover:text-white transition-colors"
+        >
+          Download My Resume
+        </a>
+      </div>
+    </div>
+
+    <div>
+      <h3 class="mb-8 text-2xl font-bold text-center text-[#0a0a0a]">
+        My <span class="text-warm-accent">Skills</span>
+      </h3>
+      <div
+        class="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 max-w-5xl mx-auto"
+      >
+        @for (skill of skills(); track skill.name) {
+        <div
+          class="flex flex-col items-center justify-center p-6 text-center transition-colors rounded-xl bg-beige-100 hover:bg-beige-200"
+        >
+          @if (skill.icon) {
+          <svg
+            width="24"
+            height="24"
+            class="w-8 h-8 mb-3 text-warm-text"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path [attr.d]="skill.icon"></path>
+          </svg>
+          } @else if (skill.img) {
+          <img
+            [src]="skill.img"
+            [alt]="skill.name"
+            width="24"
+            height="24"
+            class="w-8 h-8 mb-3 object-contain"
+          />
+          }
+          <span class="text-sm font-medium text-warm-text">{{
+            skill.name
+          }}</span>
+        </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>
