@@ -84,6 +84,7 @@ export class ProjectsComponent {
     },
     {
       company: "Solve Education!",
+      imageUrl: "src/assets/SE_New_Updated_Logo-Color.png",
       roles: [
         {
           title: "Quality Assurance",
