@@ -4,6 +4,7 @@ export interface ExperienceRole {
   title: string;
   period: string;
   location: string;
+  summary?: string;
   description: string[];
   tags: string[];
 }
@@ -29,8 +30,9 @@ export class ProjectsComponent {
           title: "QA Engineer | via Granitor",
           period: "April 2025 - Present",
           location: "Täby, Stockholm County, Sweden",
-          description: [
+          summary:
             "Working remotely with CheckProof AB on product QA and test automation.",
+          description: [
             "Accomplishment: Initiated Cypress automation for app.",
             "Continuation in building automation ecosystem for CheckProof.",
           ],
@@ -46,7 +48,8 @@ export class ProjectsComponent {
           title: "QA Engineer",
           period: "April 2025 - Present",
           location: "Bandung, West Java, Indonesia",
-          description: ["Assigned to CheckProof AB, Sweden."],
+          summary: "Assigned to CheckProof AB, Sweden.",
+          description: [],
           tags: ["Remote work", "Consultant", "QA"],
         },
       ],
@@ -59,8 +62,9 @@ export class ProjectsComponent {
           title: "SDET / QA Engineer",
           period: "February 2024 - March 2025",
           location: "Singapore, Singapore",
-          description: [
+          summary:
             "R2 level engineer working for 99 Group Singapore subsidiary.",
+          description: [
             "Focus on cypress.io: Lead initiatives, Maintain the ecosystem, Automate new features, Mentorship to newjoiners (QA + Web Frontend).",
             "Manual Software QA engineer: Building a better STLC for the team, Build, brainstorm, and execute test plans.",
           ],
@@ -70,8 +74,9 @@ export class ProjectsComponent {
           title: "QA Engineer",
           period: "November 2020 - February 2024",
           location: "Singapore, Singapore",
-          description: [
+          summary:
             "R1 level engineer working for 99 Group Singapore subsidiary.",
+          description: [
             "Achievements: Created cypress.io framework into Web automation testing pipeline.",
             "Doubles up cypress.io test cases every quarters.",
             "Responsible: Middle QA Engineer for 99.co Singapore (99 Group HQ).",
@@ -90,8 +95,9 @@ export class ProjectsComponent {
           title: "Quality Assurance",
           period: "October 2018 - November 2020",
           location: "Bandung Area, West Java, Indonesia",
+          summary: "Responsibility:",
           description: [
-            "Responsibility: Tester for Dawn Of Civilization game, Data analytics for Dawn of Civilization, Research in users behavior, Users experiences.",
+            "Tester for Dawn Of Civilization game, Data analytics for Dawn of Civilization, Research in users behavior, Users experiences.",
             "Testing all Solve Education! products: Solve Education! Portal, Content+, Learnalytics.",
             "Coding analytic requirements on GameMaker Studio for DoC game.",
           ],

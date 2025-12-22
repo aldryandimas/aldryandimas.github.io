@@ -4,8 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "ng serve",
-    "build": "ng build",
+    "config:env": "node scripts/set-env.js",
+    "dev": "npm run config:env && ng serve",
+    "build": "npm run config:env && ng build",
     "preview": "ng serve --configuration=production"
   },
   "dependencies": {

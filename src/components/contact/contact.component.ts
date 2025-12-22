@@ -1,5 +1,6 @@
 import { Component, ChangeDetectionStrategy, signal } from "@angular/core";
 import { FormsModule } from "@angular/forms";
+import { environment } from "../../environments/environment";
 
 @Component({
   selector: "app-contact",
@@ -10,20 +11,49 @@ import { FormsModule } from "@angular/forms";
 export class ContactComponent {
   formState = signal({ name: "", email: "", message: "" });
 
-  onSubmit() {
+  isSubmitting = signal(false);
+
+  async onSubmit() {
+    if (this.isSubmitting()) return;
+
+    this.isSubmitting.set(true);
     const { name, email, message } = this.formState();
-    // Construct WhatsApp message
-    const waNumber = "+6285156573478"; // TODO: Replace with your actual WhatsApp number (e.g., 62812...)
-    const text = `Hi, I'm ${name} (${email}).\n\n${message}`;
-    const whatsappUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(
-      text
-    )}`;
 
-    // Open WhatsApp in a new tab
-    window.open(whatsappUrl, "_blank");
+    try {
+      const response = await fetch(
+        `https://formspree.io/f/${environment.formspreeId}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            name,
+            email,
+            message,
+            _subject: `New submission from ${name}`,
+          }),
+        }
+      );
 
-    console.log("Form submitted:", this.formState());
-    alert("Thank you! Redirecting to WhatsApp...");
-    this.formState.set({ name: "", email: "", message: "" });
+      if (response.ok) {
+        alert("Thanks! Your message has been sent.");
+        this.formState.set({ name: "", email: "", message: "" });
+      } else {
+        const data = await response.json();
+        if (Object.hasOwn(data, "errors")) {
+          alert(
+            data["errors"].map((error: any) => error["message"]).join(", ")
+          );
+        } else {
+          alert("Oops! There was a problem submitting your form");
+        }
+      }
+    } catch (error) {
+      alert("Oops! There was a problem submitting your form");
+    } finally {
+      this.isSubmitting.set(false);
+    }
   }
 }

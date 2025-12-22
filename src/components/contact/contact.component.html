@@ -61,10 +61,11 @@
         </div>
         <div class="text-center">
           <button
-            type="submit"
-            class="inline-flex items-center justify-center w-full px-8 py-3 text-base font-medium text-white transition-colors rounded-lg bg-warm-accent hover:bg-warm-accent-hover sm:w-auto"
+            [disabled]="isSubmitting()"
+            [class.opacity-70]="isSubmitting()"
+            class="inline-flex items-center justify-center w-full px-8 py-3 text-base font-medium text-white transition-colors rounded-lg bg-warm-accent hover:bg-warm-accent-hover sm:w-auto disabled:cursor-not-allowed"
           >
-            Send Message
+            {{ isSubmitting() ? "Sending..." : "Send Message" }}
           </button>
         </div>
       </form>

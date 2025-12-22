@@ -69,17 +69,37 @@
                     </div>
                   </div>
 
-                  <div class="mb-5">
-                    <ul
-                      class="space-y-2 list-disc list-inside text-warm-text/80 text-sm leading-relaxed"
-                    >
-                      @for (desc of role.description; track desc) {
-                      <li>{{ desc }}</li>
-                      }
-                    </ul>
+                  @if (role.summary) {
+                  <p class="mb-3 font-medium text-warm-text leading-relaxed">
+                    {{ role.summary }}
+                  </p>
+                  }
+
+                  <div class="flex flex-col space-y-3">
+                    @for (desc of role.description; track desc) {
+                    <div class="flex items-start gap-3 group">
+                      <svg
+                        class="w-5 h-5 mt-0.5 text-warm-accent flex-shrink-0 group-hover:translate-x-1 transition-transform duration-300"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M9 5l7 7-7 7"
+                        />
+                      </svg>
+                      <span
+                        class="text-base text-warm-text/90 leading-relaxed"
+                        >{{ desc }}</span
+                      >
+                    </div>
+                    }
                   </div>
 
-                  <div class="flex flex-wrap gap-2">
+                  <div class="flex flex-wrap gap-2 mt-6">
                     @for (tag of role.tags; track tag) {
                     <span
                       class="px-3 py-1 text-xs font-medium rounded-full bg-beige-100 text-warm-text/80"
