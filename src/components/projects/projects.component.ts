@@ -6,7 +6,16 @@ export interface ExperienceRole {
   location: string;
   summary?: string;
   description: string[];
+  achievements?: string[];
   tags: string[];
+  products?: Product[];
+}
+
+export interface Product {
+  name: string;
+  description?: string;
+  imageUrl?: string;
+  link?: string;
 }
 
 export interface Experience {
@@ -33,10 +42,19 @@ export class ProjectsComponent {
           summary:
             "Working remotely with CheckProof AB on product QA and test automation.",
           description: [
-            "Accomplishment: Initiated Cypress automation for app.",
             "Continuation in building automation ecosystem for CheckProof.",
           ],
+          achievements: ["Key-initiator of Cypress automation for app."],
           tags: ["Remote work", "Consultant", "QA", "Cypress", "Automation"],
+          products: [
+            {
+              name: "Manual and Automation Tests",
+              description:
+                "End-to-end automation suite using Cypress for the mobile & web app.",
+              imageUrl:
+                "src/assets/admin-app-checkproof-functions-overview-2 (1).png", // Placeholder, using logo for now if no specific product image
+            },
+          ],
         },
       ],
     },
@@ -69,6 +87,20 @@ export class ProjectsComponent {
             "Manual Software QA engineer: Building a better STLC for the team, Build, brainstorm, and execute test plans.",
           ],
           tags: ["Remote work", "SDET", "Cypress", "Mentorship", "STLC"],
+          products: [
+            {
+              name: "Web Automation with Cypress",
+              description:
+                "Scalable Cypress framework for Singapore's leading property portal.",
+              imageUrl: "src/assets/99web.png",
+            },
+            {
+              name: "Manual Tests on All Platforms",
+              description:
+                "Manual testing on all platforms: Web, Android, and iOS.",
+              imageUrl: "src/assets/99app.png",
+            },
+          ],
         },
         {
           title: "QA Engineer",
@@ -76,10 +108,12 @@ export class ProjectsComponent {
           location: "Singapore, Singapore",
           summary:
             "R1 level engineer working for 99 Group Singapore Headquarters.",
+          achievements: [
+            "Created cypress.io framework into Web automation testing pipeline.",
+            "Doubled up cypress.io test cases every quarters.",
+          ],
           description: [
-            "Achievements: Created cypress.io framework into Web automation testing pipeline.",
-            "Doubles up cypress.io test cases every quarters.",
-            "Responsible: Middle QA Engineer for 99.co Singapore (99 Group HQ).",
+            "Middle QA Engineer for 99.co Singapore (99 Group HQ).",
             "Working as hybrid QA Engineer (manual & automation).",
             "Lead Cypress.io team to build and maintain automation environment: Regression, Functional, UI, API, SEO testing automation.",
           ],
@@ -95,13 +129,25 @@ export class ProjectsComponent {
           title: "Quality Assurance",
           period: "October 2018 - November 2020",
           location: "Bandung Area, West Java, Indonesia",
-          summary: "Responsibility:",
           description: [
             "Tester for Dawn Of Civilization game, Data analytics for Dawn of Civilization, Research in users behavior, Users experiences.",
             "Testing all Solve Education! products: Solve Education! Portal, Content+, Learnalytics.",
             "Coding analytic requirements on GameMaker Studio for DoC game.",
           ],
           tags: ["Game Testing", "Data Analytics", "GameMaker Studio"],
+          products: [
+            {
+              name: "Game Testing",
+              description: "Game tester for Dawn of Civilization game.",
+              imageUrl: "src/assets/lApRPa.png",
+            },
+            {
+              name: "Data Analytics",
+              description:
+                "Add event parameters in GMS2 for tracking user behavior",
+              imageUrl: "src/assets/gms.png",
+            },
+          ],
         },
       ],
     },

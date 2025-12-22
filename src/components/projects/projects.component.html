@@ -73,31 +73,132 @@
                   <p class="mb-3 font-medium text-warm-text leading-relaxed">
                     {{ role.summary }}
                   </p>
-                  }
-
-                  <div class="flex flex-col space-y-3">
-                    @for (desc of role.description; track desc) {
-                    <div class="flex items-start gap-3 group">
-                      <svg
-                        class="w-5 h-5 mt-0.5 text-warm-accent flex-shrink-0 group-hover:translate-x-1 transition-transform duration-300"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M9 5l7 7-7 7"
-                        />
-                      </svg>
-                      <span
-                        class="text-base text-warm-text/90 leading-relaxed"
-                        >{{ desc }}</span
-                      >
+                  } @if (role.achievements?.length) {
+                  <div class="mb-6">
+                    <h5
+                      class="mb-3 text-xs font-bold tracking-wider uppercase text-warm-accent"
+                    >
+                      Key Achievements
+                    </h5>
+                    <div class="flex flex-col space-y-3">
+                      @for (achievement of role.achievements; track achievement)
+                      {
+                      <div class="flex items-start gap-3 group">
+                        <svg
+                          class="w-5 h-5 mt-0.5 text-yellow-500 flex-shrink-0 group-hover:scale-110 transition-transform duration-300"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
+                          />
+                        </svg>
+                        <span
+                          class="text-base text-warm-text/90 leading-relaxed font-medium"
+                          >{{ achievement }}</span
+                        >
+                      </div>
+                      }
                     </div>
-                    }
                   </div>
+                  } @if (role.description.length) {
+                  <div>
+                    <h5
+                      class="mb-3 text-xs font-bold tracking-wider uppercase text-warm-text/50"
+                    >
+                      Responsibilities
+                    </h5>
+                    <div class="flex flex-col space-y-3">
+                      @for (desc of role.description; track desc) {
+                      <div class="flex items-start gap-3 group">
+                        <svg
+                          class="w-5 h-5 mt-0.5 text-warm-accent flex-shrink-0 group-hover:translate-x-1 transition-transform duration-300"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M9 5l7 7-7 7"
+                          />
+                        </svg>
+                        <span
+                          class="text-base text-warm-text/90 leading-relaxed"
+                          >{{ desc }}</span
+                        >
+                      </div>
+                      }
+                    </div>
+                  </div>
+                  } @if (role.products?.length) {
+                  <div class="mt-8 mb-6">
+                    <h5
+                      class="mb-4 text-xs font-bold tracking-wider uppercase text-warm-text/50"
+                    >
+                      Key Deliverables
+                    </h5>
+                    <div
+                      class="flex gap-4 pb-4 overflow-x-auto snap-x snap-mandatory scrollbar-thin scrollbar-thumb-warm-accent/20 scrollbar-track-transparent -mx-4 px-4 md:mx-0 md:px-0"
+                    >
+                      @for (product of role.products; track product.name) {
+                      <div
+                        class="flex-shrink-0 w-64 snap-center bg-white rounded-xl shadow-sm border border-beige-200 overflow-hidden hover:shadow-md transition-all duration-300 group/card"
+                      >
+                        @if (product.imageUrl) {
+                        <div class="h-32 overflow-hidden bg-beige-100 relative">
+                          <img
+                            [src]="product.imageUrl"
+                            [alt]="product.name"
+                            class="w-full h-full object-cover transform group-hover/card:scale-105 transition-transform duration-500"
+                          />
+                          <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-300"
+                          ></div>
+                        </div>
+                        } @else {
+                        <div
+                          class="h-32 bg-gradient-to-br from-beige-100 to-white flex items-center justify-center border-b border-beige-100"
+                        >
+                          <svg
+                            class="w-10 h-10 text-warm-accent/40"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="1.5"
+                              d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+                            />
+                          </svg>
+                        </div>
+                        }
+                        <div class="p-4">
+                          <h6
+                            class="font-bold text-[#333333] text-sm mb-1 line-clamp-1"
+                          >
+                            {{ product.name }}
+                          </h6>
+                          @if (product.description) {
+                          <p
+                            class="text-xs text-[#333333]/70 line-clamp-2 leading-relaxed"
+                          >
+                            {{ product.description }}
+                          </p>
+                          }
+                        </div>
+                      </div>
+                      }
+                    </div>
+                  </div>
+                  }
 
                   <div class="flex flex-wrap gap-2 mt-6">
                     @for (tag of role.tags; track tag) {
