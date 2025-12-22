@@ -2,9 +2,9 @@ import {
   Component,
   ChangeDetectionStrategy,
   signal,
-  effect,
-  HostListener,
+  inject,
 } from "@angular/core";
+import { ModalService } from "../../services/modal.service";
 
 @Component({
   selector: "app-header",
@@ -15,6 +15,7 @@ import {
   },
 })
 export class HeaderComponent {
+  private modalService = inject(ModalService);
   isScrolled = signal(false);
   isMenuOpen = signal(false);
 
@@ -34,5 +35,19 @@ export class HeaderComponent {
 
   closeMenu() {
     this.isMenuOpen.set(false);
+  }
+
+  onHireMeClick(event: Event) {
+    const contactSection = document.getElementById("contact");
+    if (contactSection) {
+      const rect = contactSection.getBoundingClientRect();
+      const isInView = rect.top < window.innerHeight && rect.bottom >= 0;
+
+      if (!isInView) {
+        event.preventDefault();
+        this.modalService.open();
+      }
+      this.closeMenu();
+    }
   }
 }

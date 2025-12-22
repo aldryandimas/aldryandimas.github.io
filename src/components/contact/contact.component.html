@@ -10,76 +10,7 @@
     </div>
 
     <div class="max-w-xl mx-auto">
-      <form
-        (ngSubmit)="onSubmit()"
-        class="space-y-6"
-        data-testid="contact-form"
-      >
-        <div>
-          <label
-            for="name"
-            class="block mb-2 text-sm font-medium text-warm-text"
-            >Name</label
-          >
-          <input
-            type="text"
-            id="name"
-            name="name"
-            [(ngModel)]="formState().name"
-            class="w-full px-4 py-3 text-sm bg-beige-100 border border-beige-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-warm-accent/50 focus:border-warm-accent transition-all"
-            placeholder="Your Name"
-            required
-            aria-required="true"
-            data-testid="contact-input-name"
-          />
-        </div>
-        <div>
-          <label
-            for="email"
-            class="block mb-2 text-sm font-medium text-warm-text"
-            >Email</label
-          >
-          <input
-            type="email"
-            id="email"
-            name="email"
-            [(ngModel)]="formState().email"
-            class="w-full px-4 py-3 text-sm bg-beige-100 border border-beige-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-warm-accent/50 focus:border-warm-accent transition-all"
-            placeholder="email@example.com"
-            required
-            aria-required="true"
-            data-testid="contact-input-email"
-          />
-        </div>
-        <div>
-          <label
-            for="message"
-            class="block mb-2 text-sm font-medium text-warm-text"
-            >Message</label
-          >
-          <textarea
-            id="message"
-            name="message"
-            rows="5"
-            [(ngModel)]="formState().message"
-            class="w-full px-4 py-3 text-sm bg-beige-100 border border-beige-200 rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-warm-accent/50 focus:border-warm-accent transition-all"
-            placeholder="Your Message..."
-            required
-            aria-required="true"
-            data-testid="contact-input-message"
-          ></textarea>
-        </div>
-        <div class="text-center">
-          <button
-            [disabled]="isSubmitting()"
-            [class.opacity-70]="isSubmitting()"
-            class="inline-flex items-center justify-center w-full px-8 py-3 text-base font-medium text-white transition-colors rounded-lg bg-warm-accent hover:bg-warm-accent-hover sm:w-auto disabled:cursor-not-allowed"
-            data-testid="contact-submit"
-          >
-            {{ isSubmitting() ? "Sending..." : "Send Message" }}
-          </button>
-        </div>
-      </form>
+      <app-contact-form></app-contact-form>
     </div>
   </div>
 </section>

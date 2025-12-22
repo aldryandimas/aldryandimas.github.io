@@ -1,15 +1,15 @@
-
-import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { HeaderComponent } from './components/header/header.component';
-import { HeroComponent } from './components/hero/hero.component';
-import { AboutComponent } from './components/about/about.component';
-import { ProjectsComponent } from './components/projects/projects.component';
-import { ContactComponent } from './components/contact/contact.component';
-import { FooterComponent } from './components/footer/footer.component';
+import { Component, ChangeDetectionStrategy } from "@angular/core";
+import { HeaderComponent } from "./components/header/header.component";
+import { HeroComponent } from "./components/hero/hero.component";
+import { AboutComponent } from "./components/about/about.component";
+import { ProjectsComponent } from "./components/projects/projects.component";
+import { ContactComponent } from "./components/contact/contact.component";
+import { FooterComponent } from "./components/footer/footer.component";
+import { HireMeModalComponent } from "./components/hire-me-modal/hire-me-modal.component";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
+  selector: "app-root",
+  templateUrl: "./app.component.html",
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     HeaderComponent,
@@ -17,7 +17,8 @@ import { FooterComponent } from './components/footer/footer.component';
     AboutComponent,
     ProjectsComponent,
     ContactComponent,
-    FooterComponent
-  ]
+    FooterComponent,
+    HireMeModalComponent,
+  ],
 })
 export class AppComponent {}

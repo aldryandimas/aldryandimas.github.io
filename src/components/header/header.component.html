@@ -15,7 +15,7 @@
           {{ link.label }}
         </a>
       }
-      <a href="#contact" class="px-5 py-2 text-sm font-medium text-white bg-warm-accent rounded-full hover:bg-warm-accent-hover transition-colors" data-testid="header-hire-me">
+      <a href="#contact" (click)="onHireMeClick($event)" class="px-5 py-2 text-sm font-medium text-white bg-warm-accent rounded-full hover:bg-warm-accent-hover transition-colors" data-testid="header-hire-me">
         Hire Me
       </a>
     </div>
@@ -68,7 +68,7 @@
             {{ link.label }}
           </a>
         }
-        <a href="#contact" (click)="closeMenu()" class="block px-4 py-2 mt-2 text-sm font-medium text-center text-white bg-warm-accent rounded-lg hover:bg-warm-accent-hover transition-colors" data-testid="header-mobile-hire-me">
+        <a href="#contact" (click)="onHireMeClick($event)" class="block px-4 py-2 mt-2 text-sm font-medium text-center text-white bg-warm-accent rounded-lg hover:bg-warm-accent-hover transition-colors" data-testid="header-mobile-hire-me">
           Hire Me
         </a>
       </div>
