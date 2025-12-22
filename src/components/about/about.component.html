@@ -1,4 +1,4 @@
-<section id="about" class="py-20 bg-white">
+<section id="about" class="py-20 bg-white" data-testid="about-section">
   <div class="container px-6 mx-auto">
     <div class="max-w-3xl mx-auto mb-16 text-center">
       <h2 class="mb-4 text-3xl font-bold text-[#0a0a0a] md:text-4xl">
@@ -36,6 +36,7 @@
           href="/path-to-your-resume.pdf"
           target="_blank"
           class="inline-flex items-center px-6 py-2.5 font-medium text-warm-accent border-2 border-warm-accent rounded-full hover:bg-warm-accent hover:text-white transition-colors"
+          data-testid="about-resume-download"
         >
           Download My Resume
         </a>
@@ -52,6 +53,9 @@
         @for (skill of skills(); track skill.name) {
         <div
           class="flex flex-col items-center justify-center p-6 text-center transition-colors rounded-xl bg-beige-100 hover:bg-beige-200"
+          [attr.data-testid]="
+            'about-skill-' + skill.name.toLowerCase().replace(' ', '-')
+          "
         >
           @if (skill.icon) {
           <svg
@@ -60,6 +64,7 @@
             class="w-8 h-8 mb-3 text-warm-text"
             fill="currentColor"
             viewBox="0 0 24 24"
+            aria-hidden="true"
           >
             <path [attr.d]="skill.icon"></path>
           </svg>

@@ -1,4 +1,4 @@
-<section id="experience" class="py-20">
+<section id="experience" class="py-20" data-testid="experience-section">
   <div class="container px-6 mx-auto">
     <div class="max-w-3xl mx-auto mb-16 text-center">
       <h2 class="mb-4 text-3xl font-bold text-warm-text md:text-4xl">
@@ -14,6 +14,9 @@
       @for (exp of experiences(); track exp.company) {
       <div
         class="overflow-hidden bg-beige-100 border border-beige-200 rounded-2xl shadow-sm hover:shadow-md transition-shadow"
+        [attr.data-testid]="
+          'experience-card-' + exp.company.toLowerCase().replace(' ', '-')
+        "
       >
         <div class="p-8">
           <div class="flex flex-col gap-6 md:flex-row md:items-start">
@@ -35,6 +38,7 @@
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
+                  aria-hidden="true"
                 >
                   <path
                     stroke-linecap="round"
@@ -89,6 +93,7 @@
                           fill="none"
                           viewBox="0 0 24 24"
                           stroke="currentColor"
+                          aria-hidden="true"
                         >
                           <path
                             stroke-linecap="round"
@@ -120,6 +125,7 @@
                           fill="none"
                           viewBox="0 0 24 24"
                           stroke="currentColor"
+                          aria-hidden="true"
                         >
                           <path
                             stroke-linecap="round"
@@ -149,6 +155,10 @@
                       @for (product of role.products; track product.name) {
                       <div
                         class="flex-shrink-0 w-64 snap-center bg-white rounded-xl shadow-sm border border-beige-200 overflow-hidden hover:shadow-md transition-all duration-300 group/card"
+                        [attr.data-testid]="
+                          'experience-product-card-' +
+                          product.name.toLowerCase().replace(' ', '-')
+                        "
                       >
                         @if (product.imageUrl) {
                         <div class="h-32 overflow-hidden bg-beige-100 relative">
@@ -170,6 +180,7 @@
                             fill="none"
                             viewBox="0 0 24 24"
                             stroke="currentColor"
+                            aria-hidden="true"
                           >
                             <path
                               stroke-linecap="round"
