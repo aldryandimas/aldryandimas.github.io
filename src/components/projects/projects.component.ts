@@ -144,7 +144,7 @@ export class ProjectsComponent {
             {
               name: "Data Analytics",
               description:
-                "Add event parameters in GMS2 for tracking user behavior",
+                "Add event parameters in GMS2 for tracking user behavior.",
               imageUrl: "src/assets/gms.png",
             },
           ],

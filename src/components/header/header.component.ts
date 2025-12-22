@@ -22,7 +22,6 @@ export class HeaderComponent {
     { path: "#home", label: "Home" },
     { path: "#about", label: "About" },
     { path: "#experience", label: "Work Experience" },
-    { path: "#contact", label: "Contact" },
   ];
 
   onWindowScroll() {
