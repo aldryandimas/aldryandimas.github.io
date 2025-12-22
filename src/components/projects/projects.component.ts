@@ -21,12 +21,24 @@ export interface Product {
 export interface Experience {
   company: string;
   imageUrl?: string;
+  companyUrl?: string;
   roles: ExperienceRole[];
 }
 
 @Component({
   selector: "app-projects",
   templateUrl: "./projects.component.html",
+  styles: [
+    `
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      a:visited {
+        color: inherit;
+      }
+    `,
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProjectsComponent {
@@ -34,6 +46,7 @@ export class ProjectsComponent {
     {
       company: "CheckProof AB (via Granitor)",
       imageUrl: "src/assets/checkproof.png",
+      companyUrl: "https://checkproof.com",
       roles: [
         {
           title: "QA Engineer",
@@ -62,6 +75,7 @@ export class ProjectsComponent {
     {
       company: "99 Group (99.co | Rumah123 | SRX)",
       imageUrl: "src/assets/pp.png",
+      companyUrl: "https://www.99.co/singapore/",
       roles: [
         {
           title: "SDET / QA Engineer",
@@ -111,6 +125,7 @@ export class ProjectsComponent {
     {
       company: "Solve Education!",
       imageUrl: "src/assets/SE_New_Updated_Logo-Color.png",
+      companyUrl: "https://solveeducation.org",
       roles: [
         {
           title: "Quality Assurance",
