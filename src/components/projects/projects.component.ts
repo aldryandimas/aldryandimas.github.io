@@ -63,7 +63,7 @@ export class ProjectsComponent {
           period: "February 2024 - March 2025",
           location: "Singapore, Singapore",
           summary:
-            "R2 level engineer working for 99 Group Singapore subsidiary.",
+            "R2 level engineer working for 99 Group Singapore Headquarters.",
           description: [
             "Focus on cypress.io: Lead initiatives, Maintain the ecosystem, Automate new features, Mentorship to newjoiners (QA + Web Frontend).",
             "Manual Software QA engineer: Building a better STLC for the team, Build, brainstorm, and execute test plans.",
@@ -75,7 +75,7 @@ export class ProjectsComponent {
           period: "November 2020 - February 2024",
           location: "Singapore, Singapore",
           summary:
-            "R1 level engineer working for 99 Group Singapore subsidiary.",
+            "R1 level engineer working for 99 Group Singapore Headquarters.",
           description: [
             "Achievements: Created cypress.io framework into Web automation testing pipeline.",
             "Doubles up cypress.io test cases every quarters.",
