@@ -32,17 +32,18 @@ export interface Experience {
 export class ProjectsComponent {
   experiences = signal<Experience[]>([
     {
-      company: "CheckProof",
+      company: "CheckProof AB (via Granitor)",
       imageUrl: "src/assets/checkproof.png",
       roles: [
         {
-          title: "QA Engineer | via Granitor",
+          title: "QA Engineer",
           period: "April 2025 - Present",
-          location: "Täby, Stockholm County, Sweden",
+          location: "Hybrid, Bandung, Indonesia",
           summary:
-            "Working remotely with CheckProof AB on product QA and test automation.",
+            "QA Engineer Consultant at CheckProof AB (Sweden), engaged through PT Granitor Systems APAC. Closely integrated with the product team on QA and test automation initiatives.",
           description: [
-            "Continuation in building automation ecosystem for CheckProof.",
+            "Collaborating closely with CheckProof's engineering team on quality assurance efforts.",
+            "Building and maintaining Cypress automation ecosystem for the product suite.",
           ],
           achievements: ["Key-initiator of Cypress automation for app."],
           tags: ["Remote work", "Consultant", "QA", "Cypress", "Automation"],
@@ -52,23 +53,9 @@ export class ProjectsComponent {
               description:
                 "End-to-end automation suite using Cypress for the mobile & web app.",
               imageUrl:
-                "src/assets/admin-app-checkproof-functions-overview-2 (1).png", // Placeholder, using logo for now if no specific product image
+                "src/assets/admin-app-checkproof-functions-overview-2 (1).png",
             },
           ],
-        },
-      ],
-    },
-    {
-      company: "PT Granitor Systems APAC",
-      imageUrl: "src/assets/GRANITOR_LOGO_PRIMARY_RGB_PNG.png",
-      roles: [
-        {
-          title: "QA Engineer",
-          period: "April 2025 - Present",
-          location: "Bandung, West Java, Indonesia",
-          summary: "Assigned to CheckProof AB, Sweden.",
-          description: [],
-          tags: ["Remote work", "Consultant", "QA"],
         },
       ],
     },
@@ -79,7 +66,7 @@ export class ProjectsComponent {
         {
           title: "SDET / QA Engineer",
           period: "February 2024 - March 2025",
-          location: "Singapore, Singapore",
+          location: "Remote-first, Bandung, Indonesia",
           summary:
             "R2 level engineer working for 99 Group Singapore Headquarters.",
           description: [
@@ -105,7 +92,7 @@ export class ProjectsComponent {
         {
           title: "QA Engineer",
           period: "November 2020 - February 2024",
-          location: "Singapore, Singapore",
+          location: "Remote-first, Bandung, Indonesia",
           summary:
             "R1 level engineer working for 99 Group Singapore Headquarters.",
           achievements: [
@@ -128,7 +115,7 @@ export class ProjectsComponent {
         {
           title: "Quality Assurance",
           period: "October 2018 - November 2020",
-          location: "Bandung Area, West Java, Indonesia",
+          location: "Bandung, West Java, Indonesia",
           description: [
             "Tester for Dawn Of Civilization game, Data analytics for Dawn of Civilization, Research in users behavior, Users experiences.",
             "Testing all Solve Education! products: Solve Education! Portal, Content+, Learnalytics.",
