@@ -1,58 +1,106 @@
-<header 
-  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
-  [class.bg-beige-50/90]="isScrolled()"
-  [class.backdrop-blur-sm]="isScrolled()"
-  [class.shadow-sm]="isScrolled()">
-  <nav class="container mx-auto px-6 py-4 flex justify-between items-center" data-testid="header-nav">
-    <a href="#home" class="text-xl font-bold text-warm-text hover:text-warm-accent transition-colors" data-testid="header-logo">
-      Aldryan Putra
-    </a>
-    
-    <!-- Desktop Menu -->
-    <div class="hidden md:flex items-center gap-8">
-      @for(link of navLinks; track link.path) {
-        <a [href]="link.path" class="text-sm font-medium text-warm-text/80 hover:text-warm-accent transition-colors" [attr.data-testid]="'header-link-' + link.label.toLowerCase()">
-          {{ link.label }}
-        </a>
-      }
-      <a href="#contact" (click)="onHireMeClick($event)" class="px-5 py-2 text-sm font-medium text-white bg-warm-accent rounded-full hover:bg-warm-accent-hover transition-colors" data-testid="header-hire-me">
-        Hire Me
-      </a>
-    </div>
-
-    <!-- Mobile Menu Button -->
-    <div class="md:hidden">
-      <button 
-        (click)="toggleMenu()" 
-        class="relative p-2 text-warm-text hover:bg-beige-100 rounded-lg transition-colors overflow-hidden" 
-        aria-label="Toggle menu"
-        data-testid="header-mobile-menu-button"
-        [attr.aria-expanded]="isMenuOpen()"
-        aria-controls="mobile-menu"
+<header
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-beige-200 bg-beige-50/90 backdrop-blur-sm"
+  [class.shadow-sm]="isScrolled()"
+>
+  <div
+    class="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 sm:gap-8 px-4 sm:px-6 lg:px-8"
+  >
+    <!-- Logo Section -->
+    <a
+      href="#home"
+      class="flex items-center gap-1 text-xl text-warm-text transition-colors hover:text-warm-accent"
+      data-testid="header-logo"
+    >
+      <svg
+        class="size-6 text-warm-accent"
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
       >
-        <div class="relative w-6 h-5 flex flex-col justify-between">
-          <span 
-            class="w-full h-0.5 bg-current rounded-full transition-all duration-300 origin-center"
-            [class.rotate-45]="isMenuOpen()"
-            [class.translate-y-[9px]]="isMenuOpen()">
-          </span>
-          <span 
-            class="w-full h-0.5 bg-current rounded-full transition-all duration-300"
-            [class.opacity-0]="isMenuOpen()"
-            [class.translate-x-full]="isMenuOpen()">
-          </span>
-          <span 
-            class="w-full h-0.5 bg-current rounded-full transition-all duration-300 origin-center"
-            [class.-rotate-45]="isMenuOpen()"
-            [class.-translate-y-[9px]]="isMenuOpen()">
-          </span>
-        </div>
-      </button>
-    </div>
-  </nav>
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <path d="M8 9l3 3l-3 3" />
+        <path d="M13 15l3 0" />
+        <path
+          d="M3 6a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2l0 -12"
+        />
+      </svg>
+      <span class="font-semibold sm:block">Aldryan</span>
+      <span class="font-light sm:block">Putra</span>
+    </a>
 
-  <!-- Mobile Menu -->
-  <div 
+    <!-- Desktop Navigation -->
+    <div class="hidden md:block">
+      <nav
+        aria-label="Global"
+        class="flex justify-center"
+        data-testid="header-nav"
+      >
+        <ul class="flex items-center justify-center gap-6 text-sm">
+          @for (link of navLinks; track link.path) {
+            <li>
+              <a
+                [href]="link.path"
+                class="font-medium transition hover:text-warm-text/75 text-warm-text/80 hover:text-warm-accent"
+                [attr.data-testid]="'header-link-' + link.label.toLowerCase()"
+              >
+                {{ link.label }}
+              </a>
+            </li>
+          }
+        </ul>
+      </nav>
+    </div>
+
+    <div class="flex items-center">
+      <!-- Desktop Hire Me Button -->
+      <div class="hidden sm:flex items-center gap-4">
+        <a
+          href="#contact"
+          (click)="onHireMeClick($event)"
+          class="rounded-md bg-warm-accent px-5 py-2.5 text-sm font-medium text-white shadow hover:bg-warm-accent-hover transition-colors"
+          data-testid="header-hire-me"
+        >
+          Hire Me
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <div class="block md:hidden">
+        <button
+          (click)="toggleMenu()"
+          class="rounded bg-beige-100 p-2.5 text-warm-text transition hover:text-warm-text/75"
+          aria-label="Toggle menu"
+          data-testid="header-mobile-menu-button"
+          [attr.aria-expanded]="isMenuOpen()"
+          aria-controls="mobile-menu"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="size-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu Drawer (Preserved logic) -->
+  <div
     id="mobile-menu"
     class="md:hidden bg-beige-100 border-t border-beige-200 grid transition-all duration-300 ease-in-out overflow-hidden"
     [class.grid-rows-[1fr]]="isMenuOpen()"
@@ -63,12 +111,24 @@
   >
     <div class="min-h-0">
       <div class="flex flex-col p-4 space-y-2">
-        @for(link of navLinks; track link.path) {
-          <a [href]="link.path" (click)="closeMenu()" class="block px-4 py-2 text-sm font-medium text-warm-text hover:bg-beige-50 hover:text-warm-accent rounded-lg transition-colors" [attr.data-testid]="'header-mobile-link-' + link.label.toLowerCase()">
+        @for (link of navLinks; track link.path) {
+          <a
+            [href]="link.path"
+            (click)="closeMenu()"
+            class="block px-4 py-2 text-sm font-medium text-warm-text hover:bg-beige-50 hover:text-warm-accent rounded-lg transition-colors"
+            [attr.data-testid]="
+              'header-mobile-link-' + link.label.toLowerCase()
+            "
+          >
             {{ link.label }}
           </a>
         }
-        <a href="#contact" (click)="onHireMeClick($event)" class="block px-4 py-2 mt-2 text-sm font-medium text-center text-white bg-warm-accent rounded-lg hover:bg-warm-accent-hover transition-colors" data-testid="header-mobile-hire-me">
+        <a
+          href="#contact"
+          (click)="onHireMeClick($event)"
+          class="block px-4 py-2 mt-2 text-sm font-medium text-center text-white bg-warm-accent rounded-lg hover:bg-warm-accent-hover transition-colors"
+          data-testid="header-mobile-hire-me"
+        >
           Hire Me
         </a>
       </div>

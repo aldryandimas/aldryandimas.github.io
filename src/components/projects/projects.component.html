@@ -12,232 +12,227 @@
 
     <div class="grid gap-8 max-w-4xl mx-auto">
       @for (exp of experiences(); track exp.company) {
-      <div
-        class="overflow-hidden bg-beige-100 border border-beige-200 rounded-2xl shadow-sm hover:shadow-md transition-shadow"
-        [attr.data-testid]="
-          'experience-card-' + exp.company.toLowerCase().replace(' ', '-')
-        "
-      >
-        <div class="p-8">
-          <div class="flex flex-col gap-6 md:flex-row md:items-start">
-            <div
-              class="relative w-full h-36 md:w-56 md:h-40 flex-shrink-0 overflow-hidden rounded-lg bg-white p-4"
-            >
-              @if (exp.imageUrl) {
-              <img
-                [src]="exp.imageUrl"
-                alt="{{ exp.company }}"
-                class="w-full h-full object-contain"
-              />
-              } @else {
+        <div
+          class="overflow-hidden bg-beige-100 border border-beige-200 rounded-2xl shadow-sm hover:shadow-md transition-shadow"
+          [attr.data-testid]="
+            'experience-card-' + exp.company.toLowerCase().replace(' ', '-')
+          "
+        >
+          <div class="p-8">
+            <div class="flex flex-col gap-6 md:flex-row md:items-start">
               <div
-                class="w-full h-48 md:w-32 md:h-32 rounded-lg bg-beige-100 flex items-center justify-center text-warm-text/20"
+                class="relative w-full h-36 md:w-56 md:h-40 flex-shrink-0 overflow-hidden rounded-lg bg-white p-4"
               >
-                <svg
-                  class="w-12 h-12"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
-                  ></path>
-                </svg>
-              </div>
-              }
-            </div>
-
-            <div class="flex-grow">
-              <h3 class="text-xl font-bold text-warm-accent mb-6">
-                @if (exp.companyUrl) {
-                <a
-                  [href]="exp.companyUrl"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="hover:opacity-80 transition-opacity cursor-pointer decoration-inherit text-inherit"
-                >
-                  {{ exp.company }}
-                </a>
+                @if (exp.imageUrl) {
+                  <img
+                    [src]="exp.imageUrl"
+                    alt="{{ exp.company }}"
+                    class="w-full h-full object-contain"
+                  />
                 } @else {
-                {{ exp.company }}
-                }
-              </h3>
-
-              <div class="space-y-10">
-                @for (role of exp.roles; track role.title) {
-                <div
-                  class="relative pl-0 md:pl-4 border-l-0 md:border-l-2 border-beige-200"
-                >
                   <div
-                    class="flex flex-col gap-1 mb-3 md:flex-row md:justify-between md:items-baseline"
+                    class="w-full h-48 md:w-32 md:h-32 rounded-lg bg-beige-100 flex items-center justify-center text-warm-text/20"
                   >
-                    <h4 class="text-lg font-bold text-warm-text">
-                      {{ role.title }}
-                    </h4>
-                    <div class="text-sm text-warm-text/60 md:text-right">
-                      <p>{{ role.period }}</p>
-                      <p>{{ role.location }}</p>
-                    </div>
-                  </div>
-
-                  @if (role.summary) {
-                  <p class="mb-3 font-medium text-warm-text leading-relaxed">
-                    {{ role.summary }}
-                  </p>
-                  } @if (role.achievements?.length) {
-                  <div class="mb-6">
-                    <h5
-                      class="mb-3 text-xs font-bold tracking-wider uppercase text-warm-accent"
+                    <svg
+                      class="w-12 h-12"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      aria-hidden="true"
                     >
-                      Key Achievements
-                    </h5>
-                    <div class="flex flex-col space-y-3">
-                      @for (achievement of role.achievements; track achievement)
-                      {
-                      <div class="flex items-start gap-3 group">
-                        <svg
-                          class="w-5 h-5 mt-0.5 text-yellow-500 flex-shrink-0 group-hover:scale-110 transition-transform duration-300"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                          aria-hidden="true"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
-                          />
-                        </svg>
-                        <span
-                          class="text-base text-warm-text/90 leading-relaxed font-medium"
-                          >{{ achievement }}</span
-                        >
-                      </div>
-                      }
-                    </div>
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+                      ></path>
+                    </svg>
                   </div>
-                  } @if (role.description.length) {
-                  <div>
-                    <h5
-                      class="mb-3 text-xs font-bold tracking-wider uppercase text-warm-text/50"
-                    >
-                      Responsibilities
-                    </h5>
-                    <div class="flex flex-col space-y-3">
-                      @for (desc of role.description; track desc) {
-                      <div class="flex items-start gap-3 group">
-                        <svg
-                          class="w-5 h-5 mt-0.5 text-warm-accent flex-shrink-0 group-hover:translate-x-1 transition-transform duration-300"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                          aria-hidden="true"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M9 5l7 7-7 7"
-                          />
-                        </svg>
-                        <span
-                          class="text-base text-warm-text/90 leading-relaxed"
-                          >{{ desc }}</span
-                        >
-                      </div>
-                      }
-                    </div>
-                  </div>
-                  } @if (role.products?.length) {
-                  <div class="mt-8 mb-6">
-                    <h5
-                      class="mb-4 text-xs font-bold tracking-wider uppercase text-warm-text/50"
-                    >
-                      Key Deliverables
-                    </h5>
-                    <div
-                      class="flex gap-4 pb-4 overflow-x-auto snap-x snap-mandatory scrollbar-thin scrollbar-thumb-warm-accent/20 scrollbar-track-transparent -mx-4 px-4 md:mx-0 md:px-0"
-                    >
-                      @for (product of role.products; track product.name) {
-                      <div
-                        class="flex-shrink-0 w-64 snap-center bg-white rounded-xl shadow-sm border border-beige-200 overflow-hidden hover:shadow-md transition-all duration-300 group/card"
-                        [attr.data-testid]="
-                          'experience-product-card-' +
-                          product.name.toLowerCase().replace(' ', '-')
-                        "
-                      >
-                        @if (product.imageUrl) {
-                        <div class="h-32 overflow-hidden bg-beige-100 relative">
-                          <img
-                            [src]="product.imageUrl"
-                            [alt]="product.name"
-                            class="w-full h-full object-cover transform group-hover/card:scale-105 transition-transform duration-500"
-                          />
-                          <div
-                            class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-300"
-                          ></div>
-                        </div>
-                        } @else {
-                        <div
-                          class="h-32 bg-gradient-to-br from-beige-100 to-white flex items-center justify-center border-b border-beige-100"
-                        >
-                          <svg
-                            class="w-10 h-10 text-warm-accent/40"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                            aria-hidden="true"
-                          >
-                            <path
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              stroke-width="1.5"
-                              d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
-                            />
-                          </svg>
-                        </div>
-                        }
-                        <div class="p-4">
-                          <h6
-                            class="font-bold text-[#333333] text-sm mb-1 line-clamp-1"
-                          >
-                            {{ product.name }}
-                          </h6>
-                          @if (product.description) {
-                          <p
-                            class="text-xs text-[#333333]/70 line-clamp-2 leading-relaxed"
-                          >
-                            {{ product.description }}
-                          </p>
-                          }
-                        </div>
-                      </div>
-                      }
-                    </div>
-                  </div>
-                  }
-
-                  <div class="flex flex-wrap gap-2 mt-6">
-                    @for (tag of role.tags; track tag) {
-                    <span
-                      class="px-3 py-1 text-xs font-medium rounded-full bg-beige-100 text-warm-text/80"
-                    >
-                      {{ tag }}
-                    </span>
-                    }
-                  </div>
-                </div>
                 }
+              </div>
+
+              <div class="flex-grow">
+                <h3 class="text-xl font-bold text-warm-accent mb-6">
+                  @if (exp.companyUrl) {
+                    <a
+                      [href]="exp.companyUrl"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="hover:opacity-80 transition-opacity cursor-pointer decoration-inherit text-inherit"
+                    >
+                      {{ exp.company }}
+                    </a>
+                  } @else {
+                    {{ exp.company }}
+                  }
+                </h3>
+
+                <div class="space-y-10">
+                  @for (role of exp.roles; track role.title) {
+                    <div
+                      class="relative pl-0 md:pl-4 border-l-0 md:border-l-2 border-beige-200"
+                    >
+                      <div
+                        class="flex flex-col gap-1 mb-3 md:flex-row md:justify-between md:items-baseline"
+                      >
+                        <h4 class="text-lg font-bold text-warm-text">
+                          {{ role.title }}
+                        </h4>
+                        <div class="text-sm text-warm-text/60 md:text-right">
+                          <p>{{ role.period }}</p>
+                          <p>{{ role.location }}</p>
+                        </div>
+                      </div>
+
+                      @if (role.summary) {
+                        <p
+                          class="mb-3 font-medium text-warm-text leading-relaxed"
+                        >
+                          {{ role.summary }}
+                        </p>
+                      }
+                      @if (role.achievements?.length) {
+                        <div class="mb-6">
+                          <h5
+                            class="mb-3 text-xs font-bold tracking-wider uppercase text-warm-accent"
+                          >
+                            Key Achievements
+                          </h5>
+                          <div class="flex flex-col space-y-3">
+                            @for (
+                              achievement of role.achievements;
+                              track achievement
+                            ) {
+                              <div class="flex items-start gap-3 group">
+                                <svg
+                                  class="w-5 h-5 mt-0.5 text-yellow-500 flex-shrink-0 group-hover:scale-110 transition-transform duration-300"
+                                  fill="none"
+                                  viewBox="0 0 24 24"
+                                  stroke="currentColor"
+                                  aria-hidden="true"
+                                >
+                                  <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
+                                  />
+                                </svg>
+                                <span
+                                  class="text-base text-warm-text/90 leading-relaxed font-medium"
+                                  >{{ achievement }}</span
+                                >
+                              </div>
+                            }
+                          </div>
+                        </div>
+                      }
+                      @if (role.description.length) {
+                        <div>
+                          <h5
+                            class="mb-3 text-xs font-bold tracking-wider uppercase text-warm-text/50"
+                          >
+                            Responsibilities
+                          </h5>
+                          <div class="flex flex-col space-y-3">
+                            @for (desc of role.description; track desc) {
+                              <div class="flex items-start gap-3 group">
+                                <svg
+                                  class="w-5 h-5 mt-0.5 text-warm-accent flex-shrink-0 group-hover:translate-x-1 transition-transform duration-300"
+                                  fill="none"
+                                  viewBox="0 0 24 24"
+                                  stroke="currentColor"
+                                  aria-hidden="true"
+                                >
+                                  <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M9 5l7 7-7 7"
+                                  />
+                                </svg>
+                                <span
+                                  class="text-base text-warm-text/90 leading-relaxed"
+                                  >{{ desc }}</span
+                                >
+                              </div>
+                            }
+                          </div>
+                        </div>
+                      }
+                      @if (role.products?.length) {
+                        <div class="mt-8 mb-6">
+                          <h5
+                            class="mb-4 text-xs font-bold tracking-wider uppercase text-warm-text/50"
+                          >
+                            Key Deliverables
+                          </h5>
+                          <div
+                            class="flex gap-4 pb-4 overflow-x-auto snap-x snap-mandatory scrollbar-thin scrollbar-thumb-warm-accent/20 scrollbar-track-transparent -mx-4 px-4 md:mx-0 md:px-0"
+                          >
+                            @for (
+                              product of role.products;
+                              track product.name
+                            ) {
+                              <div
+                                class="flex-shrink-0 w-80 snap-center bg-white rounded-xl shadow-lg overflow-hidden dark:bg-gray-800 hover:shadow-xl transition-all duration-300 group/card"
+                                [attr.data-testid]="
+                                  'experience-product-card-' +
+                                  product.name.toLowerCase().replace(' ', '-')
+                                "
+                              >
+                                @if (product.imageUrl) {
+                                  <div class="h-48 overflow-hidden relative">
+                                    <img
+                                      [src]="product.imageUrl"
+                                      [alt]="product.name"
+                                      class="w-full h-full object-cover transform group-hover/card:scale-105 transition-transform duration-500"
+                                    />
+                                    <div
+                                      class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-300"
+                                    ></div>
+                                  </div>
+                                } @else {
+                                  <div
+                                    class="h-48 bg-gradient-to-br from-lime-500 to-lime-600 flex items-center justify-center p-6"
+                                  ></div>
+                                }
+                                <div class="p-6">
+                                  <h6
+                                    class="text-xl font-bold text-gray-900 dark:text-white mb-2 line-clamp-1"
+                                  >
+                                    {{ product.name }}
+                                  </h6>
+                                  @if (product.description) {
+                                    <p
+                                      class="text-gray-600 dark:text-gray-300 line-clamp-3 leading-relaxed text-sm"
+                                    >
+                                      {{ product.description }}
+                                    </p>
+                                  }
+                                </div>
+                              </div>
+                            }
+                          </div>
+                        </div>
+                      }
+
+                      <div class="flex flex-wrap gap-2 mt-6">
+                        @for (tag of role.tags; track tag) {
+                          <span
+                            class="px-3 py-1 text-xs font-medium rounded-full bg-beige-100 text-warm-text/80"
+                          >
+                            {{ tag }}
+                          </span>
+                        }
+                      </div>
+                    </div>
+                  }
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
       }
     </div>
   </div>
