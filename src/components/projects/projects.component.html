@@ -51,7 +51,7 @@
                 }
               </div>
 
-              <div class="flex-grow">
+              <div class="flex-grow min-w-0">
                 <h3 class="text-xl font-bold text-warm-accent mb-6">
                   @if (exp.companyUrl) {
                     <a
@@ -168,7 +168,16 @@
                             Key Deliverables
                           </h5>
                           <div
-                            class="flex gap-4 pb-4 overflow-x-auto snap-x snap-mandatory scrollbar-thin scrollbar-thumb-warm-accent/20 scrollbar-track-transparent -mx-4 px-4 md:mx-0 md:px-0"
+                            class="flex gap-4 pb-4 overflow-x-auto overflow-y-hidden snap-x snap-mandatory scrollbar-thin scrollbar-thumb-warm-accent/20 scrollbar-track-transparent -mx-4 px-4 md:mx-0 md:px-0 focus:outline-none"
+                            style="-webkit-overflow-scrolling: touch; touch-action: pan-x; cursor: grab;"
+                            tabindex="0"
+                            role="list"
+                              aria-label="Key deliverables carousel"
+                              (wheel)="onCarouselWheel($event)"
+                              (pointerdown)="onCarouselPointerDown($event)"
+                              (pointermove)="onCarouselPointerMove($event)"
+                              (pointerup)="onCarouselPointerUp($event)"
+                              (pointercancel)="onCarouselPointerUp($event)"
                           >
                             @for (
                               product of role.products;

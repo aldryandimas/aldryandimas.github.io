@@ -56,7 +56,7 @@ export class ProjectsComponent {
             "QA Engineer Consultant at CheckProof AB (Sweden), engaged through PT Granitor Systems APAC. Closely integrated with the product team on QA and test automation initiatives.",
           description: [
             "Collaborating closely with CheckProof's engineering team on quality assurance efforts.",
-            "Building and maintaining Cypress automation ecosystem for the product suite.",
+            "Building and maintaining Cypress automation ecosystem for the Angular app on web and mobile platforms.",
           ],
           achievements: ["Key-initiator of Cypress automation for app."],
           tags: ["Remote work", "Consultant", "QA", "Cypress", "Automation"],
@@ -154,4 +154,57 @@ export class ProjectsComponent {
       ],
     },
   ]);
+
+  private dragState: { startX: number; startY: number; scrollLeft: number; locked: boolean } | null = null;
+
+  onCarouselWheel(event: WheelEvent) {
+    // Only intercept pure vertical scroll (deltaX === 0) to redirect to horizontal.
+    // Any non-zero deltaX means trackpad/horizontal scroll — let the browser handle
+    // it natively so momentum and inertia work correctly.
+    if (event.deltaX !== 0) return;
+    const el = event.currentTarget as HTMLElement | null;
+    if (!el) return;
+    event.preventDefault();
+    el.scrollLeft += event.deltaY;
+  }
+
+  onCarouselPointerDown(event: PointerEvent) {
+    if (event.pointerType === 'touch') return;
+    const el = event.currentTarget as HTMLElement;
+    this.dragState = { startX: event.clientX, startY: event.clientY, scrollLeft: el.scrollLeft, locked: false };
+    el.style.userSelect = 'none';
+  }
+
+  onCarouselPointerMove(event: PointerEvent) {
+    if (!this.dragState || event.pointerType === 'touch') return;
+    const el = event.currentTarget as HTMLElement;
+    const dx = event.clientX - this.dragState.startX;
+    const dy = event.clientY - this.dragState.startY;
+
+    if (!this.dragState.locked) {
+      if (Math.abs(dx) < 5 && Math.abs(dy) < 5) return;
+      if (Math.abs(dy) > Math.abs(dx)) {
+        this.dragState = null;
+        return;
+      }
+      el.setPointerCapture(event.pointerId);
+      el.style.cursor = 'grabbing';
+      // Disable snap during drag so it doesn't fight the movement
+      el.style.scrollSnapType = 'none';
+      this.dragState.locked = true;
+    }
+
+    el.scrollLeft = this.dragState.scrollLeft - dx;
+  }
+
+  onCarouselPointerUp(event: PointerEvent) {
+    if (!this.dragState || event.pointerType === 'touch') return;
+    const el = event.currentTarget as HTMLElement;
+    if (el.hasPointerCapture(event.pointerId)) el.releasePointerCapture(event.pointerId);
+    this.dragState = null;
+    el.style.cursor = 'grab';
+    el.style.userSelect = '';
+    // Re-enable snap so it settles into the nearest card on release
+    el.style.scrollSnapType = '';
+  }
 }
