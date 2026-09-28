@@ -78,16 +78,30 @@ export class ProjectsComponent {
       companyUrl: "https://www.99.co/singapore/",
       roles: [
         {
-          title: "SDET / QA Engineer",
-          period: "February 2024 - March 2025",
+          title: "SDET/QA Engineer (Medior)",
+          period: "November 2020 - March 2025",
           location: "Remote-first, Bandung, Indonesia",
           summary:
-            "R2 level engineer working for 99 Group Singapore Headquarters.",
+            "Medior engineer working for 99 Group Singapore Headquarters.",
+          achievements: [
+            "Created cypress.io framework into Web automation testing pipeline.",
+            "Doubled up cypress.io test cases every quarters.",
+          ],
           description: [
+            "Hybrid QA Engineer (manual & automation) for 99.co Singapore (99 Group HQ).",
             "Focus on cypress.io: Lead initiatives, Maintain the ecosystem, Automate new features, Mentorship to newjoiners (QA + Web Frontend).",
+            "Lead Cypress.io team to build and maintain automation environment: Regression, Functional, UI, API, SEO testing automation.",
             "Manual Software QA engineer: Building a better STLC for the team, Build, brainstorm, and execute test plans.",
           ],
-          tags: ["Remote work", "SDET", "Cypress", "Mentorship", "STLC"],
+          tags: [
+            "Remote work",
+            "SDET",
+            "QA",
+            "Cypress",
+            "Automation",
+            "Mentorship",
+            "STLC",
+          ],
           products: [
             {
               name: "Web Automation with Cypress",
@@ -102,23 +116,6 @@ export class ProjectsComponent {
               imageUrl: "src/assets/99app.png",
             },
           ],
-        },
-        {
-          title: "QA Engineer",
-          period: "November 2020 - February 2024",
-          location: "Remote-first, Bandung, Indonesia",
-          summary:
-            "R1 level engineer working for 99 Group Singapore Headquarters.",
-          achievements: [
-            "Created cypress.io framework into Web automation testing pipeline.",
-            "Doubled up cypress.io test cases every quarters.",
-          ],
-          description: [
-            "Middle QA Engineer for 99.co Singapore (99 Group HQ).",
-            "Working as hybrid QA Engineer (manual & automation).",
-            "Lead Cypress.io team to build and maintain automation environment: Regression, Functional, UI, API, SEO testing automation.",
-          ],
-          tags: ["Remote work", "QA", "Cypress", "Automation"],
         },
       ],
     },
