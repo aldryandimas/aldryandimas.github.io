@@ -4,18 +4,21 @@ import {
   signal,
   inject,
 } from "@angular/core";
-import { ModalService } from "../../services/modal.service";
+import { HlmButton } from "@spartan-ng/helm/button";
+import { HlmDialogService } from "@spartan-ng/helm/dialog";
+import { HireMeModalComponent } from "../hire-me-modal/hire-me-modal.component";
 
 @Component({
   selector: "app-header",
   templateUrl: "./header.component.html",
+  imports: [HlmButton],
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
     "(window:scroll)": "onWindowScroll()",
   },
 })
 export class HeaderComponent {
-  private modalService = inject(ModalService);
+  private dialogService = inject(HlmDialogService);
   isScrolled = signal(false);
   isMenuOpen = signal(false);
 
@@ -45,7 +48,9 @@ export class HeaderComponent {
 
       if (!isInView) {
         event.preventDefault();
-        this.modalService.open();
+        this.dialogService.open(HireMeModalComponent, {
+          contentClass: "sm:max-w-lg",
+        });
       }
       this.closeMenu();
     }

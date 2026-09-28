@@ -13,7 +13,8 @@
     <div class="grid gap-8 max-w-4xl mx-auto">
       @for (exp of experiences(); track exp.company) {
         <div
-          class="overflow-hidden bg-beige-100 border border-beige-200 rounded-2xl shadow-sm hover:shadow-md transition-shadow"
+          hlmCard
+          class="overflow-hidden hover:shadow-md transition-shadow"
           [attr.data-testid]="
             'experience-card-' + exp.company.toLowerCase().replace(' ', '-')
           "
@@ -105,7 +106,7 @@
                             ) {
                               <div class="flex items-start gap-3 group">
                                 <svg
-                                  class="w-5 h-5 mt-0.5 text-yellow-500 flex-shrink-0 group-hover:scale-110 transition-transform duration-300"
+                                  class="w-5 h-5 mt-0.5 text-warm-accent flex-shrink-0 group-hover:scale-110 transition-transform duration-300"
                                   fill="none"
                                   viewBox="0 0 24 24"
                                   stroke="currentColor"
@@ -184,7 +185,7 @@
                               track product.name
                             ) {
                               <div
-                                class="flex-shrink-0 w-80 snap-center bg-white rounded-xl shadow-lg overflow-hidden dark:bg-gray-800 hover:shadow-xl transition-all duration-300 group/card"
+                                class="flex-shrink-0 w-80 snap-center bg-beige-100 border border-beige-200 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group/card"
                                 [attr.data-testid]="
                                   'experience-product-card-' +
                                   product.name.toLowerCase().replace(' ', '-')
@@ -203,18 +204,18 @@
                                   </div>
                                 } @else {
                                   <div
-                                    class="h-48 bg-gradient-to-br from-lime-500 to-lime-600 flex items-center justify-center p-6"
+                                    class="h-48 bg-gradient-to-br from-beige-200 to-beige-300 flex items-center justify-center p-6"
                                   ></div>
                                 }
                                 <div class="p-6">
                                   <h6
-                                    class="text-xl font-bold text-gray-900 dark:text-white mb-2 line-clamp-1"
+                                    class="text-xl font-bold text-warm-text mb-2 line-clamp-1"
                                   >
                                     {{ product.name }}
                                   </h6>
                                   @if (product.description) {
                                     <p
-                                      class="text-gray-600 dark:text-gray-300 line-clamp-3 leading-relaxed text-sm"
+                                      class="text-warm-text/70 line-clamp-3 leading-relaxed text-sm"
                                     >
                                       {{ product.description }}
                                     </p>
@@ -228,9 +229,7 @@
 
                       <div class="flex flex-wrap gap-2 mt-6">
                         @for (tag of role.tags; track tag) {
-                          <span
-                            class="px-3 py-1 text-xs font-medium rounded-full bg-beige-100 text-warm-text/80"
-                          >
+                          <span hlmBadge variant="secondary">
                             {{ tag }}
                           </span>
                         }

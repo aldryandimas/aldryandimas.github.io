@@ -1,12 +1,16 @@
 import { Component, ChangeDetectionStrategy, signal } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { CommonModule } from "@angular/common";
+import { HlmButton } from "@spartan-ng/helm/button";
+import { HlmInput } from "@spartan-ng/helm/input";
+import { HlmLabel } from "@spartan-ng/helm/label";
+import { HlmTextarea } from "@spartan-ng/helm/textarea";
 import { environment } from "../../environments/environment";
 
 @Component({
   selector: "app-contact-form",
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, HlmButton, HlmInput, HlmLabel, HlmTextarea],
   templateUrl: "./contact-form.component.html",
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

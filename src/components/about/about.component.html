@@ -1,10 +1,10 @@
-<section id="about" class="py-20 bg-white" data-testid="about-section">
+<section id="about" class="py-20" data-testid="about-section">
   <div class="container px-6 mx-auto">
     <div class="max-w-3xl mx-auto mb-16 text-center">
-      <h2 class="mb-4 text-3xl font-bold text-[#0a0a0a] md:text-4xl">
+      <h2 class="mb-4 text-3xl font-bold text-warm-text md:text-4xl">
         About <span class="text-warm-accent">Me</span>
       </h2>
-      <p class="text-[#0a0a0a]/70">
+      <p class="text-warm-text/70">
         A glimpse into my background, skills, and what drives me as a QA
         engineer.
       </p>
@@ -12,7 +12,7 @@
 
     <div class="grid items-center gap-12 mb-20 md:grid-cols-2">
       <div class="relative" id="about-image">
-        <div class="overflow-hidden rounded-2xl shadow-lg">
+        <div class="overflow-hidden rounded-2xl border border-beige-200 shadow-lg">
           <img
             src="src/assets/profilebig.jpg"
             alt="Profile Picture"
@@ -24,19 +24,19 @@
         </div>
       </div>
       <div id="about-text">
-        <h3 class="mb-4 text-2xl font-bold text-[#0a0a0a]">Who am I?</h3>
-        <p class="mb-4 leading-relaxed text-[#0a0a0a]/80">
+        <h3 class="mb-4 text-2xl font-bold text-warm-text">Who am I?</h3>
+        <p class="mb-4 leading-relaxed text-warm-text/80">
           As a QA professional and Telkom University Computational Science
           graduate, I specialize in Cypress.io automation to ensure robust
           product quality. I manage scalable testing ecosystems for both
           regression and new feature validation.
         </p>
-        <p class="mb-4 leading-relaxed text-[#0a0a0a]/80">
+        <p class="mb-4 leading-relaxed text-warm-text/80">
           Driven by excellence, I have doubled test coverage while maintaining
           efficiency. I believe in exceeding standards through meticulous
           testing to deliver exceptional products.
         </p>
-        <p class="mb-4 leading-relaxed text-[#0a0a0a]/80">
+        <p class="mb-4 leading-relaxed text-warm-text/80">
           I master both SDET automation and manual testing, with expertise in
           functional, integration, UAT, smoke, sanity, black/grey box, API, and
           exploratory methodologies.
@@ -44,7 +44,9 @@
         <a
           href="/path-to-your-resume.pdf"
           target="_blank"
-          class="inline-flex items-center px-6 py-2.5 font-medium text-warm-accent border-2 border-warm-accent rounded-full hover:bg-warm-accent hover:text-white transition-colors"
+          hlmBtn
+          variant="outline"
+          size="lg"
           data-testid="about-resume-download"
         >
           Download My Resume
@@ -53,7 +55,7 @@
     </div>
 
     <div>
-      <h3 class="mb-8 text-2xl font-bold text-center text-[#0a0a0a]">
+      <h3 class="mb-8 text-2xl font-bold text-center text-warm-text">
         My <span class="text-warm-accent">Skills</span>
       </h3>
       <div
@@ -61,7 +63,7 @@
       >
         @for (skill of skills(); track skill.name) {
         <div
-          class="flex flex-col items-center justify-center p-6 text-center transition-colors rounded-xl bg-beige-100 hover:bg-beige-200"
+          class="flex flex-col items-center justify-center p-6 text-center transition-colors rounded-xl border border-beige-200 bg-beige-100 hover:bg-beige-200"
           [attr.data-testid]="
             'about-skill-' + skill.name.toLowerCase().replace(' ', '-')
           "

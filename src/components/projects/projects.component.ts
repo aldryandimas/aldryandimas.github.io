@@ -1,4 +1,6 @@
 import { Component, ChangeDetectionStrategy, signal } from "@angular/core";
+import { HlmCard } from "@spartan-ng/helm/card";
+import { HlmBadge } from "@spartan-ng/helm/badge";
 
 export interface ExperienceRole {
   title: string;
@@ -28,6 +30,7 @@ export interface Experience {
 @Component({
   selector: "app-projects",
   templateUrl: "./projects.component.html",
+  imports: [HlmCard, HlmBadge],
   styles: [
     `
       a {
@@ -125,7 +128,7 @@ export class ProjectsComponent {
       companyUrl: "https://solveeducation.org",
       roles: [
         {
-          title: "Quality Assurance",
+          title: "Quality Assurance Tester",
           period: "October 2018 - November 2020",
           location: "Bandung, West Java, Indonesia",
           description: [

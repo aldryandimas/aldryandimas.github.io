@@ -1,4 +1,5 @@
 import { Component, ChangeDetectionStrategy, signal } from "@angular/core";
+import { HlmButton } from "@spartan-ng/helm/button";
 
 interface Skill {
   name: string;
@@ -9,6 +10,7 @@ interface Skill {
 @Component({
   selector: "app-about",
   templateUrl: "./about.component.html",
+  imports: [HlmButton],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AboutComponent {

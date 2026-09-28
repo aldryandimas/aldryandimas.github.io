@@ -1,13 +1,44 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@import "@spartan-ng/brain/hlm-tailwind-preset.css";
+@config "./tailwind.config.js";
 
 @layer base {
   html {
     @apply scroll-smooth;
   }
 
-  body {
-    @apply bg-beige-50 text-warm-text font-sans antialiased;
+  * {
+    @apply border-border outline-ring/50;
   }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-warm-accent ring-offset-2 ring-offset-background;
+  }
+}
+
+:root {
+  color-scheme: dark;
+  --radius: 0.625rem;
+  --background: #09090b;
+  --foreground: #fafafa;
+  --card: #18181b;
+  --card-foreground: #fafafa;
+  --popover: #18181b;
+  --popover-foreground: #fafafa;
+  --primary: #fafafa;
+  --primary-foreground: #09090b;
+  --secondary: #27272a;
+  --secondary-foreground: #fafafa;
+  --muted: #27272a;
+  --muted-foreground: #a1a1aa;
+  --accent: #27272a;
+  --accent-foreground: #fafafa;
+  --destructive: #ef4444;
+  --border: #27272a;
+  --input: #27272a;
+  --ring: #a1a1aa;
 }

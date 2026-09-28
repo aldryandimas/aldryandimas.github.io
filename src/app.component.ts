@@ -5,7 +5,6 @@ import { AboutComponent } from "./components/about/about.component";
 import { ProjectsComponent } from "./components/projects/projects.component";
 import { ContactComponent } from "./components/contact/contact.component";
 import { FooterComponent } from "./components/footer/footer.component";
-import { HireMeModalComponent } from "./components/hire-me-modal/hire-me-modal.component";
 
 @Component({
   selector: "app-root",
@@ -18,7 +17,6 @@ import { HireMeModalComponent } from "./components/hire-me-modal/hire-me-modal.c
     ProjectsComponent,
     ContactComponent,
     FooterComponent,
-    HireMeModalComponent,
   ],
 })
 export class AppComponent {}

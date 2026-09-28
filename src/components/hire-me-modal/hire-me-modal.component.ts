@@ -1,20 +1,21 @@
-import { Component, inject, ChangeDetectionStrategy } from "@angular/core";
-import { CommonModule } from "@angular/common";
-import { ModalService } from "../../services/modal.service";
+import { Component, ChangeDetectionStrategy } from "@angular/core";
+import {
+  HlmDialogHeader,
+  HlmDialogTitle,
+  HlmDialogDescription,
+} from "@spartan-ng/helm/dialog";
 import { ContactFormComponent } from "../contact-form/contact-form.component";
 
 @Component({
   selector: "app-hire-me-modal",
   standalone: true,
-  imports: [CommonModule, ContactFormComponent],
+  imports: [
+    HlmDialogHeader,
+    HlmDialogTitle,
+    HlmDialogDescription,
+    ContactFormComponent,
+  ],
   templateUrl: "./hire-me-modal.component.html",
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HireMeModalComponent {
-  private modalService = inject(ModalService);
-  isOpen = this.modalService.isModalOpen;
-
-  close() {
-    this.modalService.close();
-  }
-}
+export class HireMeModalComponent {}
