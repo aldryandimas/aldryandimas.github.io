@@ -1,0 +1,199 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Aldryan Putra CV</title>
+<style>
+  :root{
+    --bg:#ffffff;
+    --ink:#111111;
+    --sub:#444444;
+    --line:#cccccc;
+    --accent:#111111;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:#ffffff;
+    color:var(--ink);
+    font-family:Arial, Helvetica, ui-sans-serif, system-ui, sans-serif;
+    line-height:1.5;
+    padding-inline:16px;
+    padding-block:32px;
+  }
+  .sheet{
+    max-width:720px;
+    margin-inline:auto;
+  }
+  h1{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:clamp(1.6rem,5vw,2rem);
+    font-weight:700;
+    letter-spacing:0.02em;
+    margin:0;
+  }
+  .role{
+    color:var(--sub);
+    font-size:1.02rem;
+    font-weight:400;
+    margin-top:2px;
+  }
+  .contact{
+    margin-top:10px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px 16px;
+    font-size:0.88rem;
+    color:var(--sub);
+  }
+  .contact a{color:var(--sub);text-decoration:none;border-bottom:1px solid var(--line);}
+  .contact a:hover{color:var(--accent);border-color:var(--accent);}
+  header{padding-bottom:16px;border-bottom:1px solid var(--ink);}
+  section{margin-top:24px;}
+  h2{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:0.82rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--ink);
+    border-bottom:1px solid var(--line);
+    padding-bottom:4px;
+    margin:0 0 12px;
+  }
+  p.summary{margin:0;color:var(--ink);}
+  .job{margin-bottom:20px;}
+  .job:last-child{margin-bottom:0;}
+  .job-head{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    gap:4px 12px;
+    align-items:baseline;
+  }
+  .job-title{font-weight:600;}
+  .job-company{color:var(--sub);font-weight:400;}
+  .job-period{
+    font-size:0.85rem;
+    color:var(--sub);
+    white-space:nowrap;
+    font-variant-numeric:tabular-nums;
+  }
+  .job-loc{font-size:0.82rem;color:var(--sub);margin-top:1px;}
+  ul.bullets{
+    margin:8px 0 0;
+    padding-left:1.1em;
+    font-size:0.94rem;
+  }
+  ul.bullets li{margin-bottom:4px;}
+  .tags{
+    margin-top:10px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px;
+  }
+  .tag{
+    background:#ffffff;
+    color:var(--sub);
+    border:1px solid var(--line);
+    border-radius:2px;
+    padding:1px 7px;
+    font-size:0.76rem;
+  }
+  .edu-row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 12px;}
+  .edu-period{font-size:0.85rem;color:var(--sub);white-space:nowrap;}
+  .skills{display:flex;flex-wrap:wrap;gap:8px;}
+  .skills .tag{color:var(--ink);font-size:0.85rem;}
+  @media print{
+    body{padding:0;}
+    .contact a{border-bottom:none;}
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+  <header>
+    <h1>Aldryan Putra</h1>
+    <div class="role">QA Engineer / SDET</div>
+    <div class="contact">
+      <span>Bandung, Indonesia</span>
+      <a href="https://linkedin.com/in/aldryandeschara" target="_blank">linkedin.com/in/aldryandeschara</a>
+      <a href="https://github.com/aldryandimas" target="_blank">github.com/aldryandimas</a>
+    </div>
+  </header>
+
+  <section>
+    <h2>Summary</h2>
+    <p class="summary">QA engineer specializing in Cypress.io automation across web and mobile, with 5+ years building and maintaining scalable regression, functional, UI, and API test suites. Comfortable owning both manual STLC processes and automation frameworks, mentoring teammates, and working remote-first with distributed teams.</p>
+  </section>
+
+  <section>
+    <h2>Experience</h2>
+
+    <div class="job">
+      <div class="job-head">
+        <span><span class="job-title">QA Engineer</span> <span class="job-company">— CheckProof AB (via Granitor Systems APAC)</span></span>
+        <span class="job-period">Apr 2025 – Present</span>
+      </div>
+      <div class="job-loc">Hybrid, Bandung, Indonesia</div>
+      <ul class="bullets">
+        <li>QA consultant embedded with CheckProof's (Sweden) product team on quality assurance and test automation.</li>
+        <li>Key initiator of Cypress automation for the Angular web and mobile app.</li>
+        <li>Building and maintaining the Cypress automation ecosystem alongside the engineering team.</li>
+      </ul>
+      <div class="tags">
+        <span class="tag">Cypress</span><span class="tag">Automation</span><span class="tag">Consultant</span><span class="tag">Remote</span>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <span><span class="job-title">SDET / QA Engineer (Medior)</span> <span class="job-company">— 99 Group (99.co | Rumah123 | SRX)</span></span>
+        <span class="job-period">Nov 2020 – Mar 2025</span>
+      </div>
+      <div class="job-loc">Remote-first, Bandung, Indonesia</div>
+      <ul class="bullets">
+        <li>Built the Cypress.io framework for 99.co's web automation testing pipeline from the ground up.</li>
+        <li>Led the Cypress team maintaining regression, functional, UI, API, and SEO automation.</li>
+        <li>Doubled Cypress test case coverage every quarter; mentored new QA and frontend joiners.</li>
+        <li>Ran manual QA across web, Android, and iOS, improving the team's STLC process.</li>
+      </ul>
+      <div class="tags">
+        <span class="tag">Cypress</span><span class="tag">SDET</span><span class="tag">Automation</span><span class="tag">Mentorship</span><span class="tag">STLC</span>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <span><span class="job-title">Quality Assurance Tester</span> <span class="job-company">— Solve Education!</span></span>
+        <span class="job-period">Oct 2018 – Nov 2020</span>
+      </div>
+      <div class="job-loc">Bandung, Indonesia</div>
+      <ul class="bullets">
+        <li>Tested the Dawn of Civilization game plus the Solve Education Portal, Content+, and Learnalytics products.</li>
+        <li>Analyzed user behavior data and coded analytics event tracking in GameMaker Studio.</li>
+      </ul>
+      <div class="tags">
+        <span class="tag">Game Testing</span><span class="tag">Data Analytics</span><span class="tag">GameMaker Studio</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Skills</h2>
+    <div class="skills">
+      <span class="tag">Cypress.io</span><span class="tag">Test Automation</span><span class="tag">Manual QA</span>
+      <span class="tag">STLC</span><span class="tag">API Testing</span><span class="tag">Regression Testing</span>
+      <span class="tag">UAT / Smoke / Sanity</span><span class="tag">Exploratory Testing</span><span class="tag">Mentorship</span>
+    </div>
+  </section>
+
+  <section>
+    <h2>Education</h2>
+    <div class="edu-row">
+      <span><strong>Telkom University</strong> — Computational Science</span>
+    </div>
+  </section>
+</div>
+</body>
+</html>
