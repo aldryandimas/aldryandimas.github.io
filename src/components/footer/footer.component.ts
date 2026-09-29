@@ -8,4 +8,6 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 })
 export class FooterComponent {
   currentYear = new Date().getFullYear();
+  linkedinUrl = "https://linkedin.com/in/aldryandeschara";
+  githubUrl = "https://github.com/aldryandimas";
 }
