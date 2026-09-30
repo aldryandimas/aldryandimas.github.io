@@ -87,7 +87,7 @@ export class ProjectsComponent {
           summary:
             "Medior engineer working for 99 Group Singapore Headquarters.",
           achievements: [
-            "Created cypress.io framework into Web automation testing pipeline.",
+            "Co-initiated cypress.io framework into Web automation testing pipeline.",
             "Doubled up cypress.io test cases every quarters.",
           ],
           description: [
